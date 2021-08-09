@@ -3,8 +3,9 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "arn:aws:ecs:us-east-1:401032571731:task-definition/todo-rest-application-task:8"
+        TaskDefinition: "arn:aws:ecs:us-east-1:401032571731:task-definition/todo-rest-application-task:10"
         LoadBalancerInfo:
           ContainerName: "todo-rest-application-container"
           ContainerPort: "8080"
+          HostPort     : "8084"
         PlatformVersion: "LATEST"

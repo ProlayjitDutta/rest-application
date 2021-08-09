@@ -27,4 +27,4 @@ phases:
       - echo push completed
 artifacts:
   files:
-    - imageDetail.json
+    - appspec.yml
