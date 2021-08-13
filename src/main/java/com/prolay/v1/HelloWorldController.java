@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloWorldController {
 	@GetMapping(path = "/hello-world")
 	public String helloWorld() {
-		return "Hello World Latest";
+		return "Welcome to AWS Fargate Tutorial!!";
 	}
 
 	@GetMapping(path = "/hello-world-bean")
