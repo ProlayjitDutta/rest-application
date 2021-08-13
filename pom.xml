@@ -11,7 +11,7 @@
 	<groupId>com.prolay</groupId>
 	<artifactId>v1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>v1</name>
 	<description>Demo project for Docker Compose V1</description>
 	<properties>
