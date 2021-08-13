@@ -26,5 +26,4 @@ phases:
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo push completed
 artifacts:
-  files:
-    - appspec.yml
+  files: imagedefinitions.json
