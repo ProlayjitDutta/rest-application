@@ -1,6 +1,7 @@
-FROM tomcat:8.0.51-jre8-alpine
+FROM openjdk:8-jdk-alpine
 LABEL maintainer="prolayjitdutta@gmail.com"
+VOLUME /tmp
 EXPOSE 8084
-RUN rm -rf /usr/local/tomcat/webapps/*
-COPY target/*.war /usr/local/tomcat/webapps/todo-rest-application-v1.war
-CMD ["catalina.sh","run"]
+ADD target/*.jar todo-rest-application-v1.jar
+ENV JAVA_OPTS=""
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /todo-rest-application-v1.jar" ]
