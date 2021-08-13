@@ -12,6 +12,7 @@ phases:
       - REPOSITORY_URI=401032571731.dkr.ecr.us-east-2.amazonaws.com/rest-application
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
+      - IMAGE_URI=${REPOSITORY_URI}:${IMAGE_TAG}
   build:
     commands:
       - echo Build started on `date`
@@ -25,6 +26,6 @@ phases:
       - echo Pushing the Docker images...
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo push completed
-      - printf '[{"name":"%s","imageUri":"%s"}]' $CONTAINER_NAME $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"%s","imageUri":"%s"}]' $CONTAINER_NAME $IMAGE_URI > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
